@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { USE_MOCKS, getFilters } from './api'
+import BallIcon from './components/BallIcon'
 import Tabs, { type TabId } from './components/Tabs'
 import CoachMode from './pages/CoachMode'
 import Explorer from './pages/Explorer'
@@ -16,6 +17,7 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-5">
           <div className="flex items-center gap-4">
             <div className="skew-x-[-12deg] bg-accent px-3 py-1 text-2xl font-extrabold text-navy">DC</div>
+            <BallIcon className="h-8 w-12 text-accent" />
             <div>
               <h1 className="text-3xl leading-none">Copilot</h1>
               <p className="text-sm uppercase tracking-widest text-slate-400">Asistente del coordinador defensivo</p>
@@ -31,6 +33,9 @@ export default function App() {
         {tab === 'explorer' && <Explorer />}
         {tab === 'findings' && <Findings />}
       </main>
+      <footer className="mx-auto max-w-7xl px-6 pb-8 pt-2 text-sm text-slate-500">
+        Datos: NFL Big Data Bowl (con datos de scouting de PFF). Proyecto independiente del Hackathon UNAM 2026, sin afiliación con la NFL.
+      </footer>
     </div>
   )
 }

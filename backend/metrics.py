@@ -158,3 +158,86 @@ def filter_options(df: pd.DataFrame) -> dict:
         "scoreBuckets": SCORE_BUCKETS,
         "totalPlays": len(df),
     }
+
+
+# ---------------------------------------------------------------- perfil de una jugada (/api/profile)
+PROFILE_DIMENSIONS = [
+    ("fieldZone", "fieldZone"),
+    ("downBucket", "downBucket"),
+    ("offenseTeam", "possessionTeam"),
+    ("offenseFormation", "offenseFormation"),
+    ("quarter", "quarter"),
+]
+ZONE_LABELS = {
+    "propio_fondo": "Propio fondo",
+    "propio": "Campo propio",
+    "rival": "Campo rival",
+    "red_zone": "Red zone",
+    "goal_line": "Goal line",
+}
+FORMATION_LABELS = {
+    "SHOTGUN": "Shotgun", "EMPTY": "Empty", "SINGLEBACK": "Singleback", "I_FORM": "I-Form",
+    "PISTOL": "Pistol", "JUMBO": "Jumbo", "WILDCAT": "Wildcat",
+}
+QUARTER_LABELS = {1: "1.er cuarto", 2: "2.º cuarto", 3: "3.er cuarto", 4: "4.º cuarto", 5: "Tiempo extra"}
+
+
+def empty_metrics() -> dict:
+    return {
+        "n": 0, "stopRate": 0.0, "stopAdj": 0.0, "pressureRate": 0.0, "turnoverSackRate": 0.0,
+        "yardsAllowed": 0.0, "complPct": None, "lowSample": True,
+    }
+
+
+def select_play(df: pd.DataFrame, group_by: str, key: str) -> pd.DataFrame:
+    """Jugadas de la llamada defensiva perfilada. En combo, key = 'Cover-1|blitz'."""
+    if group_by == "combo":
+        coverage, _, rush_type = key.partition("|")
+        return df[(df["coverage"] == coverage) & (df["rushType"] == rush_type)]
+    column = "defFormation" if group_by == "defFormation" else "coverage"
+    return df[df[column] == key]
+
+
+def _profile_key_and_label(dimension: str, value: object) -> tuple[str, str]:
+    if dimension == "quarter":
+        q = int(value)  # type: ignore[arg-type]
+        return str(q), QUARTER_LABELS.get(q, f"Cuarto {q}")
+    text = str(value)
+    if dimension == "fieldZone":
+        return text, ZONE_LABELS.get(text, text)
+    if dimension == "downBucket":
+        return text, f"{text}.º down"
+    if dimension == "offenseFormation":
+        return text, FORMATION_LABELS.get(text, text)
+    return text, text
+
+
+def profile(df: pd.DataFrame, group_by: str, key: str) -> dict:
+    """Desglose de una llamada defensiva por zona, down, rival, formación ofensiva y cuarto.
+
+    `df` ya viene filtrado. La base del ajuste por muestra es el stopRate de la llamada en `df`.
+    """
+    sel = select_play(df, group_by, key)
+    if group_by == "combo":
+        coverage, _, rush_type = key.partition("|")
+        label = combo_label(coverage, rush_type) if rush_type in RUSH_LABELS else key
+    else:
+        label = key
+    if sel.empty:
+        return {
+            "groupBy": group_by, "key": key, "label": label, "overall": empty_metrics(),
+            "breakdowns": [{"dimension": d, "rows": []} for d, _ in PROFILE_DIMENSIONS],
+        }
+    base = float(sel["stop"].mean())
+    breakdowns = []
+    for dimension, column in PROFILE_DIMENSIONS:
+        rows = []
+        for value, g in sel.dropna(subset=[column]).groupby(column, observed=True):
+            row_key, row_label = _profile_key_and_label(dimension, value)
+            rows.append({**summarize(g, base), "key": row_key, "label": row_label})
+        rows.sort(key=lambda r: r["stopAdj"], reverse=True)
+        breakdowns.append({"dimension": dimension, "rows": rows})
+    return {
+        "groupBy": group_by, "key": key, "label": label,
+        "overall": summarize(sel, base), "breakdowns": breakdowns,
+    }

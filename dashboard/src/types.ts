@@ -94,4 +94,26 @@ export interface StatsQuery extends Partial<ExplorerFilters> {
   splitBy?: 'distBucket' | 'downBucket' | 'fieldZone'
   twoMinute?: boolean
 }
-export interface HeatmapQuery { metric: HeatmapMetric; coverage?: string; rushType?: string; team?: string }
+export interface HeatmapQuery {
+  metric: HeatmapMetric
+  coverage?: string
+  rushType?: string
+  team?: string
+  distBucket?: string
+  scoreBucket?: string
+  formation?: string
+}
+
+// Perfil de una jugada defensiva (GET /api/profile)
+export type ProfileGroupBy = 'defFormation' | 'coverage' | 'combo'
+export type ProfileDimension = 'fieldZone' | 'downBucket' | 'offenseTeam' | 'offenseFormation' | 'quarter'
+export interface ProfileRow extends Metrics { key: string; label: string }
+export interface ProfileBreakdown { dimension: ProfileDimension; rows: ProfileRow[] }
+export interface ProfileResponse {
+  groupBy: ProfileGroupBy
+  key: string
+  label: string
+  overall: Metrics
+  breakdowns: ProfileBreakdown[]
+}
+export interface ProfileQuery extends Partial<ExplorerFilters> { groupBy: ProfileGroupBy; key: string }

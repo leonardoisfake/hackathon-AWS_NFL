@@ -27,7 +27,7 @@ export default function RushComparisonChart({ filters }: { filters: ExplorerFilt
   return (
     <ChartCard
       title="Blitz vs. 4 o menos vs. presión simulada" term="Presión simulada"
-      loading={loading} error={error} empty={empty} onRetry={reload}
+      loading={loading} hasData={data != null} error={error} empty={empty} onRetry={reload}
       footer="Stop Rate ajustado por distancia a recorrer. Pasa el cursor para ver n de cada barra."
     >
       <ResponsiveContainer width="100%" height={320}>

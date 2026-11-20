@@ -35,7 +35,7 @@ export default function CoverageBarChart({ filters, groupBy = 'coverage', title 
   return (
     <ChartCard
       title={title} term={term}
-      loading={loading} error={error} empty={rows.length === 0} onRetry={reload}
+      loading={loading} hasData={data != null} error={error} empty={rows.length === 0} onRetry={reload}
       footer={data && <>Línea gris: promedio del conjunto filtrado ({formatPct(data.baseline.stopRate)}, {formatN(data.baseline.n)}). Barras tenues: muestra pequeña.</>}
     >
       <ResponsiveContainer width="100%" height={height}>

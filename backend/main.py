@@ -13,7 +13,7 @@ from .data import get_df
 from .recommender import recommend
 from .schemas import (
     AskRequest, AskResponse, DistBucket, DownBucket, FieldZone, FilterOptions, HeatmapResponse, RecommendRequest,
-    RecommendResponse, RushType, ScoreBucket, StatsResponse,
+    ProfileGroupBy, ProfileResponse, RecommendResponse, RushType, ScoreBucket, StatsResponse,
 )
 
 app = FastAPI(title="Hackathon NFL UNAM")
@@ -79,10 +79,40 @@ def heatmap(
     coverage: str | None = None,
     rushType: RushType | None = None,
     team: str | None = None,
+    distBucket: DistBucket | None = None,
+    scoreBucket: ScoreBucket | None = None,
+    formation: str | None = None,
+    twoMinute: bool | None = None,
     df: pd.DataFrame = Depends(require_df),
 ) -> dict:
-    sub = metrics.apply_filters(df, coverage=coverage, rushType=rushType, team=team)
+    # down y fieldZone no se filtran: son los ejes del mapa.
+    sub = metrics.apply_filters(
+        df, coverage=coverage, rushType=rushType, team=team, distBucket=distBucket,
+        scoreBucket=scoreBucket, formation=formation, twoMinute=twoMinute,
+    )
     return {"metric": metric, "cells": metrics.heatmap(sub, metric)}
+
+
+@app.get("/api/profile", response_model=ProfileResponse)
+def profile_endpoint(
+    groupBy: ProfileGroupBy,
+    key: str = Query(..., min_length=1, max_length=80),
+    down: DownBucket | None = None,
+    distBucket: DistBucket | None = None,
+    fieldZone: FieldZone | None = None,
+    scoreBucket: ScoreBucket | None = None,
+    team: str | None = None,
+    formation: str | None = None,
+    twoMinute: bool | None = None,
+    df: pd.DataFrame = Depends(require_df),
+) -> dict:
+    if metrics.select_play(df, groupBy, key).empty:
+        raise HTTPException(status_code=404, detail=f"No hay jugadas de '{key}' para groupBy={groupBy}")
+    sub = metrics.apply_filters(
+        df, down=down, distBucket=distBucket, fieldZone=fieldZone, scoreBucket=scoreBucket,
+        team=team, formation=formation, twoMinute=twoMinute,
+    )
+    return metrics.profile(sub, groupBy, key)
 
 
 @app.post("/api/recommend", response_model=RecommendResponse)

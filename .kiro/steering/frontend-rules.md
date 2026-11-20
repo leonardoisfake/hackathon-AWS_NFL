@@ -9,7 +9,7 @@ fileMatchPattern: "dashboard/**"
 - Sin librerías nuevas: nada de axios, react-query, MUI, shadcn, etc. Usar `fetch`.
 - Tipos del contrato en `src/types.ts` (copiar de `api-contract.md`). Cliente en `src/api.ts` con una función por endpoint.
 - `src/api.ts` tiene un interruptor `USE_MOCKS` (por defecto toma `import.meta.env.VITE_USE_MOCKS === "true"`). En modo mocks devuelve los JSON de `src/mocks/` con un pequeño retraso simulado.
-- Llamar rutas relativas `/api/...`. En `vite.config.ts`, proxy de `/api` a `http://localhost:8000`.
+- Llamar rutas relativas **sin diagonal inicial**: `fetch('api/stats')`, nunca `fetch('/api/stats')` (la app se publica en una subruta y la diagonal inicial daría 404). Lo mismo aplica a imágenes, fuentes y CSS: nada de `url('/...')`. En `vite.config.ts`, proxy de `/api` a `http://localhost:8000`.
 - Todos los textos visibles en **español**. Porcentajes con 0 decimales ("68 %"); yardas con 1 decimal.
 - Junto a cada porcentaje mostrar `n` (p. ej. "68 % · n=38"). Grupos con `lowSample` atenuados (opacidad 40 %) y con la nota "muestra pequeña".
 - Estados de carga, error y vacío en cada vista. Un error nunca deja la pantalla en blanco.

@@ -4,7 +4,7 @@ inclusion: always
 
 # Contrato de la API (compartido entre Rol A y Rol B)
 
-Base: todas las rutas empiezan con `/api`. JSON en camelCase. Tasas como fracciones 0–1. El frontend llama rutas relativas (`/api/...`); en desarrollo, Vite hace proxy a `http://localhost:8000`.
+Base: todas las rutas empiezan con `/api`. JSON en camelCase. Tasas como fracciones 0–1. El frontend llama rutas relativas sin diagonal inicial (`api/...`, requisito de la publicación en subruta); en desarrollo, Vite hace proxy a `http://localhost:8000`.
 
 **Regla:** este archivo es la fuente de verdad. Si alguno necesita cambiarlo, avisa al otro antes. Los tipos de `frontend/src/types.ts` y `backend/app/schemas.py` deben coincidir con esto.
 
@@ -99,6 +99,24 @@ interface TeamTendencies {   // opcional
   coverageMix: { coverage: string; share: number; n: number }[];
   predictability: { situation: string; topCall: string; share: number; n: number }[];
 }
+// Perfil de una jugada defensiva: dónde y contra qué funcionó mejor.
+type ProfileGroupBy = "defFormation" | "coverage" | "combo";
+type ProfileDimension = "fieldZone" | "downBucket" | "offenseTeam" | "offenseFormation" | "quarter";
+interface ProfileRow extends Metrics {
+  key: string;               // p. ej. "red_zone", "3", "CHI", "SHOTGUN", "4"
+  label: string;             // etiqueta en español: "Red zone", "3.º down", "CHI", "Shotgun", "4.º cuarto"
+}
+interface ProfileBreakdown {
+  dimension: ProfileDimension;
+  rows: ProfileRow[];        // ordenadas por stopAdj desc; incluye grupos con n < 15 (el frontend los oculta)
+}
+interface ProfileResponse {
+  groupBy: ProfileGroupBy;
+  key: string;               // la jugada perfilada, p. ej. "Nickel (4-2-5)" o "Cover-1|blitz"
+  label: string;
+  overall: Metrics;          // la jugada en todo el conjunto filtrado
+  breakdowns: ProfileBreakdown[];   // una por dimensión, en el orden de ProfileDimension
+}
 ```
 
 ## Endpoints
@@ -108,7 +126,8 @@ interface TeamTendencies {   // opcional
 | GET | /api/health | – | `{ "status": "ok", "plays": number }` |
 | GET | /api/filters | – | FilterOptions |
 | GET | /api/stats | `groupBy` = coverage \| rushType \| combo \| coverageType \| defFormation; `splitBy` opcional = distBucket \| downBucket \| fieldZone; filtros opcionales: `down`, `distBucket`, `fieldZone`, `scoreBucket`, `team`, `formation`, `twoMinute` | StatsResponse |
-| GET | /api/heatmap | `metric` = stopAdj \| pressureRate \| yardsAllowed; filtros opcionales: `coverage`, `rushType`, `team` | HeatmapResponse |
+| GET | /api/profile | `groupBy` = defFormation \| coverage \| combo; `key` = jugada a perfilar (p. ej. `Nickel (4-2-5)`; en combo `Cover-1\|blitz`); filtros opcionales iguales a /api/stats | ProfileResponse. Desglose por fieldZone, downBucket, offenseTeam (= possessionTeam), offenseFormation y quarter (1–5). `stopAdj` de cada fila usa como base el stopRate de la jugada en el conjunto filtrado. |
+| GET | /api/heatmap | `metric` = stopAdj \| pressureRate \| yardsAllowed; filtros opcionales: `coverage`, `rushType`, `team`, `distBucket`, `scoreBucket`, `formation`, `twoMinute` (down y fieldZone no, porque son los ejes) | HeatmapResponse |
 | POST | /api/recommend | RecommendRequest | RecommendResponse |
 | POST | /api/ask | AskRequest | AskResponse |
 | GET | /api/team/{team}/tendencies | – | TeamTendencies (opcional) |

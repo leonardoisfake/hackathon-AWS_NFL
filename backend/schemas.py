@@ -111,3 +111,25 @@ class AskResponse(BaseModel):
     usedAI: bool
     recommendation: RecommendResponse | None
     error: str | None
+
+
+ProfileGroupBy = Literal["defFormation", "coverage", "combo"]
+ProfileDimension = Literal["fieldZone", "downBucket", "offenseTeam", "offenseFormation", "quarter"]
+
+
+class ProfileRow(Metrics):
+    key: str
+    label: str
+
+
+class ProfileBreakdown(BaseModel):
+    dimension: ProfileDimension
+    rows: list[ProfileRow]
+
+
+class ProfileResponse(BaseModel):
+    groupBy: ProfileGroupBy
+    key: str
+    label: str
+    overall: Metrics
+    breakdowns: list[ProfileBreakdown]

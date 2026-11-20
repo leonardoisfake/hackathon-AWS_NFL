@@ -26,7 +26,7 @@ export default function PressureScatter({ filters }: { filters: ExplorerFilters 
   return (
     <ChartCard
       title="Presión al QB vs. yardas permitidas" term="Blitz"
-      loading={loading} error={error} empty={rows.length === 0} onRetry={reload}
+      loading={loading} hasData={data != null} error={error} empty={rows.length === 0} onRetry={reload}
       footer="Cada punto es una combinación cobertura + presión (solo n ≥ 15). Más a la izquierda y abajo es mejor para la defensa. Tamaño = n."
     >
       <ResponsiveContainer width="100%" height={360}>

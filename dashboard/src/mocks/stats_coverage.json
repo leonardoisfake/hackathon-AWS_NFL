@@ -1,0 +1,151 @@
+{
+ "baseline": {
+  "n": 8522,
+  "stopRate": 0.517
+ },
+ "rows": [
+  {
+   "key": "Red Zone",
+   "label": "Red Zone",
+   "coverage": "Red Zone",
+   "n": 358,
+   "stopRate": 0.592,
+   "stopAdj": 0.588,
+   "pressureRate": 0.427,
+   "turnoverSackRate": 0.115,
+   "yardsAllowed": 2.4,
+   "complPct": 0.521,
+   "lowSample": false
+  },
+  {
+   "key": "Prevent",
+   "label": "Prevent",
+   "coverage": "Prevent",
+   "n": 32,
+   "stopRate": 0.625,
+   "stopAdj": 0.583,
+   "pressureRate": 0.344,
+   "turnoverSackRate": 0.219,
+   "yardsAllowed": 7.8,
+   "complPct": 0.345,
+   "lowSample": false
+  },
+  {
+   "key": "Cover-1",
+   "label": "Cover-1",
+   "coverage": "Cover-1",
+   "n": 2005,
+   "stopRate": 0.542,
+   "stopAdj": 0.542,
+   "pressureRate": 0.404,
+   "turnoverSackRate": 0.103,
+   "yardsAllowed": 6.7,
+   "complPct": 0.53,
+   "lowSample": false
+  },
+  {
+   "key": "Cover-0",
+   "label": "Cover-0",
+   "coverage": "Cover-0",
+   "n": 260,
+   "stopRate": 0.538,
+   "stopAdj": 0.537,
+   "pressureRate": 0.515,
+   "turnoverSackRate": 0.073,
+   "yardsAllowed": 5.2,
+   "complPct": 0.512,
+   "lowSample": false
+  },
+  {
+   "key": "2-Man",
+   "label": "2-Man",
+   "coverage": "2-Man",
+   "n": 200,
+   "stopRate": 0.535,
+   "stopAdj": 0.533,
+   "pressureRate": 0.405,
+   "turnoverSackRate": 0.125,
+   "yardsAllowed": 7.9,
+   "complPct": 0.565,
+   "lowSample": false
+  },
+  {
+   "key": "Quarters",
+   "label": "Quarters",
+   "coverage": "Quarters",
+   "n": 1033,
+   "stopRate": 0.523,
+   "stopAdj": 0.523,
+   "pressureRate": 0.356,
+   "turnoverSackRate": 0.086,
+   "yardsAllowed": 7.0,
+   "complPct": 0.627,
+   "lowSample": false
+  },
+  {
+   "key": "Cover-2",
+   "label": "Cover-2",
+   "coverage": "Cover-2",
+   "n": 1085,
+   "stopRate": 0.516,
+   "stopAdj": 0.516,
+   "pressureRate": 0.341,
+   "turnoverSackRate": 0.094,
+   "yardsAllowed": 6.5,
+   "complPct": 0.67,
+   "lowSample": false
+  },
+  {
+   "key": "Bracket",
+   "label": "Bracket",
+   "coverage": "Bracket",
+   "n": 47,
+   "stopRate": 0.511,
+   "stopAdj": 0.512,
+   "pressureRate": 0.404,
+   "turnoverSackRate": 0.17,
+   "yardsAllowed": 8.6,
+   "complPct": 0.575,
+   "lowSample": false
+  },
+  {
+   "key": "Cover-6",
+   "label": "Cover-6",
+   "coverage": "Cover-6",
+   "n": 805,
+   "stopRate": 0.494,
+   "stopAdj": 0.495,
+   "pressureRate": 0.34,
+   "turnoverSackRate": 0.088,
+   "yardsAllowed": 6.9,
+   "complPct": 0.648,
+   "lowSample": false
+  },
+  {
+   "key": "Cover-3",
+   "label": "Cover-3",
+   "coverage": "Cover-3",
+   "n": 2664,
+   "stopRate": 0.487,
+   "stopAdj": 0.487,
+   "pressureRate": 0.363,
+   "turnoverSackRate": 0.091,
+   "yardsAllowed": 6.9,
+   "complPct": 0.659,
+   "lowSample": false
+  },
+  {
+   "key": "Goal Line",
+   "label": "Goal Line",
+   "coverage": "Goal Line",
+   "n": 25,
+   "stopRate": 0.44,
+   "stopAdj": 0.474,
+   "pressureRate": 0.44,
+   "turnoverSackRate": 0.04,
+   "yardsAllowed": 0.6,
+   "complPct": 0.591,
+   "lowSample": false
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+ "baseline": {
+  "n": 8521,
+  "stopRate": 0.53
+ },
+ "rows": [
+  {
+   "key": "Dime (4-1-6)",
+   "label": "Dime (4-1-6)",
+   "defFormation": "Dime (4-1-6)",
+   "n": 459,
+   "stopRate": 0.608,
+   "stopAdj": 0.605,
+   "pressureRate": 0.484,
+   "turnoverSackRate": 0.109,
+   "yardsAllowed": 6.3,
+   "complPct": 0.554,
+   "lowSample": false
+  },
+  {
+   "key": "Quarter (3-1-7)",
+   "label": "Quarter (3-1-7)",
+   "defFormation": "Quarter (3-1-7)",
+   "n": 62,
+   "stopRate": 0.629,
+   "stopAdj": 0.605,
+   "pressureRate": 0.339,
+   "turnoverSackRate": 0.161,
+   "yardsAllowed": 4.9,
+   "complPct": 0.472,
+   "lowSample": false
+  },
+  {
+   "key": "Dime (3-2-6)",
+   "label": "Dime (3-2-6)",
+   "defFormation": "Dime (3-2-6)",
+   "n": 1396,
+   "stopRate": 0.602,
+   "stopAdj": 0.601,
+   "pressureRate": 0.415,
+   "turnoverSackRate": 0.12,
+   "yardsAllowed": 6.3,
+   "complPct": 0.572,
+   "lowSample": false
+  },
+  {
+   "key": "Nickel (3-3-5)",
+   "label": "Nickel (3-3-5)",
+   "defFormation": "Nickel (3-3-5)",
+   "n": 2803,
+   "stopRate": 0.522,
+   "stopAdj": 0.522,
+   "pressureRate": 0.358,
+   "turnoverSackRate": 0.088,
+   "yardsAllowed": 6.4,
+   "complPct": 0.625,
+   "lowSample": false
+  },
+  {
+   "key": "Nickel (4-2-5)",
+   "label": "Nickel (4-2-5)",
+   "defFormation": "Nickel (4-2-5)",
+   "n": 2403,
+   "stopRate": 0.509,
+   "stopAdj": 0.51,
+   "pressureRate": 0.358,
+   "turnoverSackRate": 0.094,
+   "yardsAllowed": 6.6,
+   "complPct": 0.631,
+   "lowSample": false
+  },
+  {
+   "key": "3-4",
+   "label": "3-4",
+   "defFormation": "3-4",
+   "n": 576,
+   "stopRate": 0.483,
+   "stopAdj": 0.484,
+   "pressureRate": 0.366,
+   "turnoverSackRate": 0.083,
+   "yardsAllowed": 7.0,
+   "complPct": 0.592,
+   "lowSample": false
+  },
+  {
+   "key": "4-3",
+   "label": "4-3",
+   "defFormation": "4-3",
+   "n": 709,
+   "stopRate": 0.478,
+   "stopAdj": 0.48,
+   "pressureRate": 0.323,
+   "turnoverSackRate": 0.078,
+   "yardsAllowed": 7.0,
+   "complPct": 0.626,
+   "lowSample": false
+  },
+  {
+   "key": "Goal Line (6-2-3)",
+   "label": "Goal Line (6-2-3)",
+   "defFormation": "Goal Line (6-2-3)",
+   "n": 113,
+   "stopRate": 0.451,
+   "stopAdj": 0.463,
+   "pressureRate": 0.381,
+   "turnoverSackRate": 0.088,
+   "yardsAllowed": 6.4,
+   "complPct": 0.612,
+   "lowSample": false
+  }
+ ]
+}

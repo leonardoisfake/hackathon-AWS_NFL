@@ -1,0 +1,24 @@
+# Tareas: B1 · Dashboard y Explorador
+
+- [x] 1. Crear `src/types.ts` con los tipos de `api-contract.md` y `src/labels.ts` con etiquetas en español, glosario y funciones de formato.
+  - _Requisitos: 2.1, 8.1_
+- [x] 2. Crear los JSON de `src/mocks/` que cumplan el contrato y `src/api.ts` con una función por endpoint, interruptor VITE_USE_MOCKS y retraso de 300 ms; configurar el proxy `/api` en el `dashboard/vite.config.ts` existente (no crear una app Vite nueva ni reinstalar dependencias).
+  - _Requisitos: 2.2, 2.3, 2.4_
+- [x] 3. Crear `App.tsx` con encabezado, total de jugadas / "Datos de ejemplo" y `Tabs.tsx` con las pestañas; páginas placeholder.
+  - _Requisitos: 1.1, 1.2, 1.3_
+- [x] 4. Crear el hook `useApi`, `ChartCard.tsx` (título, InfoTip, carga, error con Reintentar, vacío) e `InfoTip.tsx`.
+  - _Requisitos: 8.1, 8.2_
+- [x] 5. Crear `FilterBar.tsx` desde /api/filters con "Todos" y "Limpiar filtros"; conectar al estado de `Explorer.tsx`.
+  - _Requisitos: 3.1, 3.2, 3.3_
+- [x] 6. Crear `CoverageBarChart.tsx` (barras horizontales, línea de promedio, tooltip, lowSample atenuado).
+  - _Requisitos: 4.1, 4.2, 4.3_
+- [x] 7. Crear `RushComparisonChart.tsx` (agrupadas por distancia, colores fijos por rushType).
+  - _Requisitos: 5.1_
+- [x] 8. Crear `Heatmap.tsx` con cuadrícula CSS 4 × 5, selector de métrica y cobertura, celdas null en gris.
+  - _Requisitos: 6.1, 6.2_
+- [x] 9. Crear `PressureScatter.tsx` (x presión, y yardas, tamaño n, color rushType).
+  - _Requisitos: 7.1_
+- [x] 10. Crear `content/findings.ts`, `FindingCard.tsx` y `pages/Findings.tsx` con 2 tarjetas "pendiente".
+  - _Requisitos: 9.1, 9.2_
+- [x] 11. Revisar con `npm run build` que no haya errores de TypeScript y que todo se vea bien con mocks.
+  - _Requisitos: 2.3_

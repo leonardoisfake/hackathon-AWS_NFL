@@ -1,0 +1,90 @@
+{
+ "teams": [
+  "ARI",
+  "ATL",
+  "BAL",
+  "BUF",
+  "CAR",
+  "CHI",
+  "CIN",
+  "CLE",
+  "DAL",
+  "DEN",
+  "DET",
+  "GB",
+  "HOU",
+  "IND",
+  "JAX",
+  "KC",
+  "LA",
+  "LAC",
+  "LV",
+  "MIA",
+  "MIN",
+  "NE",
+  "NO",
+  "NYG",
+  "NYJ",
+  "PHI",
+  "PIT",
+  "SEA",
+  "SF",
+  "TB",
+  "TEN",
+  "WAS"
+ ],
+ "coverages": [
+  "Cover-3",
+  "Cover-1",
+  "Cover-2",
+  "Quarters",
+  "Cover-6",
+  "Red Zone",
+  "Cover-0",
+  "2-Man",
+  "Bracket",
+  "Prevent",
+  "Goal Line",
+  "Miscellaneous"
+ ],
+ "rushTypes": [
+  "base",
+  "blitz",
+  "simulada"
+ ],
+ "formations": [
+  "SHOTGUN",
+  "EMPTY",
+  "SINGLEBACK",
+  "I_FORM",
+  "PISTOL",
+  "JUMBO",
+  "WILDCAT"
+ ],
+ "downBuckets": [
+  "1",
+  "2",
+  "3",
+  "4"
+ ],
+ "distBuckets": [
+  "corta",
+  "media",
+  "larga"
+ ],
+ "fieldZones": [
+  "propio_fondo",
+  "propio",
+  "rival",
+  "red_zone",
+  "goal_line"
+ ],
+ "scoreBuckets": [
+  "perdiendo_9+",
+  "perdiendo_1_8",
+  "empate",
+  "ganando_1_8",
+  "ganando_9+"
+ ],
+ "totalPlays": 8522
+}

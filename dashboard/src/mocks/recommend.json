@@ -1,0 +1,71 @@
+{
+ "situation": {
+  "downBucket": "3",
+  "distBucket": "larga",
+  "fieldZone": "rival",
+  "scoreBucket": "ganando_1_8",
+  "twoMinute": true
+ },
+ "matchLevel": 3,
+ "matchLabel": "Coincidencia sin filtrar por marcador",
+ "nSimilar": 1016,
+ "baselineStop": 0.724,
+ "options": [
+  {
+   "coverage": "Cover-3",
+   "rushType": "base",
+   "label": "Cover-3 + 4 o menos",
+   "n": 194,
+   "stopRate": 0.784,
+   "stopAdj": 0.778,
+   "pressureRate": 0.469,
+   "turnoverSackRate": 0.17,
+   "yardsAllowed": 6.1,
+   "complPct": 0.634,
+   "lowSample": false,
+   "deltaVsBaseline": 0.054
+  },
+  {
+   "coverage": "Quarters",
+   "rushType": "base",
+   "label": "Quarters + 4 o menos",
+   "n": 97,
+   "stopRate": 0.784,
+   "stopAdj": 0.773,
+   "pressureRate": 0.412,
+   "turnoverSackRate": 0.144,
+   "yardsAllowed": 8.1,
+   "complPct": 0.627,
+   "lowSample": false,
+   "deltaVsBaseline": 0.049
+  },
+  {
+   "coverage": "Quarters",
+   "rushType": "blitz",
+   "label": "Quarters + Blitz (5+)",
+   "n": 29,
+   "stopRate": 0.793,
+   "stopAdj": 0.765,
+   "pressureRate": 0.621,
+   "turnoverSackRate": 0.172,
+   "yardsAllowed": 3.3,
+   "complPct": 0.435,
+   "lowSample": false,
+   "deltaVsBaseline": 0.041
+  }
+ ],
+ "avoid": {
+  "coverage": "Bracket",
+  "rushType": "base",
+  "label": "Bracket + 4 o menos",
+  "n": 18,
+  "stopRate": 0.389,
+  "stopAdj": 0.565,
+  "pressureRate": 0.611,
+  "turnoverSackRate": 0.167,
+  "yardsAllowed": 12.6,
+  "complPct": 0.643,
+  "lowSample": false,
+  "deltaVsBaseline": -0.159
+ }
+}

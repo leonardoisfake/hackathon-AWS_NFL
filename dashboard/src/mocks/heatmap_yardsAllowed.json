@@ -1,0 +1,125 @@
+{
+ "metric": "yardsAllowed",
+ "cells": [
+  {
+   "down": "1",
+   "fieldZone": "propio_fondo",
+   "value": 8.3,
+   "n": 321
+  },
+  {
+   "down": "1",
+   "fieldZone": "propio",
+   "value": 7.4,
+   "n": 1576
+  },
+  {
+   "down": "1",
+   "fieldZone": "rival",
+   "value": 7.2,
+   "n": 847
+  },
+  {
+   "down": "1",
+   "fieldZone": "red_zone",
+   "value": 3.7,
+   "n": 271
+  },
+  {
+   "down": "1",
+   "fieldZone": "goal_line",
+   "value": 0.8,
+   "n": 56
+  },
+  {
+   "down": "2",
+   "fieldZone": "propio_fondo",
+   "value": 7.9,
+   "n": 248
+  },
+  {
+   "down": "2",
+   "fieldZone": "propio",
+   "value": 7.2,
+   "n": 1373
+  },
+  {
+   "down": "2",
+   "fieldZone": "rival",
+   "value": 6.9,
+   "n": 813
+  },
+  {
+   "down": "2",
+   "fieldZone": "red_zone",
+   "value": 4.1,
+   "n": 316
+  },
+  {
+   "down": "2",
+   "fieldZone": "goal_line",
+   "value": 0.8,
+   "n": 76
+  },
+  {
+   "down": "3",
+   "fieldZone": "propio_fondo",
+   "value": 7.2,
+   "n": 198
+  },
+  {
+   "down": "3",
+   "fieldZone": "propio",
+   "value": 6.8,
+   "n": 1096
+  },
+  {
+   "down": "3",
+   "fieldZone": "rival",
+   "value": 6.1,
+   "n": 723
+  },
+  {
+   "down": "3",
+   "fieldZone": "red_zone",
+   "value": 4.4,
+   "n": 302
+  },
+  {
+   "down": "3",
+   "fieldZone": "goal_line",
+   "value": 1.2,
+   "n": 75
+  },
+  {
+   "down": "4",
+   "fieldZone": "propio_fondo",
+   "value": 15.1,
+   "n": 10
+  },
+  {
+   "down": "4",
+   "fieldZone": "propio",
+   "value": 6.6,
+   "n": 61
+  },
+  {
+   "down": "4",
+   "fieldZone": "rival",
+   "value": 5.6,
+   "n": 109
+  },
+  {
+   "down": "4",
+   "fieldZone": "red_zone",
+   "value": 1.5,
+   "n": 23
+  },
+  {
+   "down": "4",
+   "fieldZone": "goal_line",
+   "value": 0.0,
+   "n": 28
+  }
+ ]
+}
